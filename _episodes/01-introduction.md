@@ -44,7 +44,7 @@ a parallel computing platform and application programming interface (API), creat
 CUDA can be used to leverage the parallel processing capabilities of Nvidia GPUs.
 There are three basic approaches to CUDA usage:
 
-- using CUDA-accelerated libraries
+- using CUDA-accelerated libraries (a library is a collection of pre-compiled functions)
 - adding compiler directives ("hints" to auto-parallelisze your code)
 - using extensions to standard programming languages e.g. C, Fortran,
 that can run sections of code on the GPU
