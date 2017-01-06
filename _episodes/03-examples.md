@@ -70,3 +70,9 @@ This would seem to be out of the scope of this course?
 
 FIXME:
 Find some examples for some of the above (more on GPU obviously).
+Some material [here](https://developer.nvidia.com/cuda-education), the most useful being examples
+on github:
+
+[Continuum Analytics repo](https://github.com/ContinuumIO/numbapro-examples)
+
+[NVIDIA repo](https://github.com/harrism/numbapro_examples)
