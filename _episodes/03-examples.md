@@ -64,6 +64,9 @@ CUDA functionality can accessed directly from Python code. Information on
 [this page](https://docs.continuum.io/numbapro/CUDAJit) 
 is a bit sparse.
 
+Thankfully the Numba [documentation](http://numba.pydata.org/numba-doc/0.30.0/index.html)
+looks fairly comprehensive and includes some examples.
+
 ## PyCUDA
 Looks to be just a wrapper to enable calling kernels written in CUDA C.
 This would seem to be out of the scope of this course?
