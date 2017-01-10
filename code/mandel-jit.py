@@ -5,9 +5,9 @@
 import numpy as np
 from pylab import imshow, show
 from timeit import default_timer as timer
-from numba import autojit
+from numba import jit
 
-@autojit
+@jit
 def mandel(x, y, max_iters):
 # Given the real and imaginary parts of a complex number,
 # determine if it is a candidate for membership in the Mandelbrot
@@ -17,12 +17,12 @@ def mandel(x, y, max_iters):
     z = 0.0j
     for i in range(max_iters):
         z = z*z + c
-        if (z.real*z.real + z.imag*z.imag) >= 4:
-            return i
+        if z.real*z.real + z.imag*z.imag >= 4:
+            return 255 * i // max_iters
+    
+    return 255 
 
-    return max_iters
-
-@autojit
+@jit
 def create_fractal(min_x, max_x, min_y, max_y, image, iters):
     height = image.shape[0]
     width = image.shape[1]
