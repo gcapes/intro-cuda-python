@@ -12,10 +12,11 @@ def mandel(x, y, max_iters):
     z = 0.0j
     for i in range(max_iters):
         z = z*z + c
-        if (z.real*z.real + z.imag*z.imag) >= 4:
-            return i
-
-    return max_iters
+        if z.real*z.real + z.imag*z.imag >= 4:
+            # // is floor division in python 3
+            return 255 *i // max_iters
+    # If condition not met after max_iters    
+    return 255
 
 def create_fractal(min_x, max_x, min_y, max_y, image, iters):
     height = image.shape[0]
