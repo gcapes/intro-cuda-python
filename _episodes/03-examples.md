@@ -21,8 +21,7 @@ After visiting a great number of web pages this week,
 this [NVidia page](https://developer.nvidia.com/how-to-cuda-python) is the main source I have
 settled on.
 
-There are two examples here using Anaconda Accelerate. 
-Try these on Zrek.
+There are two examples here using Anaconda NumbaPro. 
 
 There is lots of documentation to read on the Continuum Analytics website - linked to at the above site
 
@@ -76,6 +75,22 @@ Find some examples for some of the above (more on GPU obviously).
 Some material [here](https://developer.nvidia.com/cuda-education), the most useful being examples
 on github:
 
-[Continuum Analytics repo](https://github.com/ContinuumIO/numbapro-examples)
+[Continuum Analytics NumbaPro repo](https://github.com/ContinuumIO/numbapro-examples)
 
-[NVIDIA repo](https://github.com/harrism/numbapro_examples)
+[NVIDIA NumbaPro repo](https://github.com/harrism/numbapro_examples)
+
+## To do list:
+- [NVidia page](https://developer.nvidia.com/how-to-cuda-python) 
+	- Update Mandlebrot example "Even Bigger Speedups with CUDA Python" section. 
+
+	I have tried the Mandlebrot example on Zrek, and only the first part works.
+	I have emailed Nvidia asking for help updating this code which uses Numbapro (deprecated).
+
+	- Try the other (Monte Carlo) example from https://developer.nvidia.com/how-to-cuda-python
+- Read Numba user manual
+- Read Numba documentation
+- Find library examples using anaconda accelerate e.g. cuBLAS
+- Find MKL examples using anaconda accelerate
+- Work through [this set](https://github.com/ContinuumIO/intel_hpc_2016_numba_tutorial) 
+of jupyter notebooks, which looks to be a sub-set of 
+[this](https://github.com/ContinuumIO/supercomputing2016-python) python resource
