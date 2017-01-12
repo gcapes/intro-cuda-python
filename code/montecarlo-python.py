@@ -48,23 +48,25 @@ def driver(pricer, do_plot=False):
 
     ST = paths[:, -1]
     PaidOff = np.maximum(paths[:, -1] - StrikePrice, 0)
-    print 'Result'
+    print ('Result')
     fmt = '%20s: %s'
-    print fmt % ('stock price', np.mean(ST))
-    print fmt % ('standard error', np.std(ST) / sqrt(NumPath))
-    print fmt % ('paid off', np.mean(PaidOff))
+    print ('stock price %'+ fmt, np.mean(ST))
+    print ('standard error %'+fmt, np.std(ST) / sqrt(NumPath))
+    print ('paid off %' + fmt, np.mean(PaidOff))
     optionprice = np.mean(PaidOff) * exp(-InterestRate * Maturity)
-    print fmt % ('option price', optionprice)
+    print ('option price %'+fmt, optionprice)
 
-    print 'Performance'
+    print ('Performance')
     NumCompute = NumPath * NumStep
-    print fmt % ('Mstep/second', '%.2f' % (NumCompute / elapsed / 1e6))
-    print fmt % ('time elapsed', '%.3fs' % (te - ts))
+    print ('Mstep/second %'+fmt, '%.2f' % (NumCompute / elapsed / 1e6))
+    print ('time elapsed %'+fmt, '%.3fs' % (te - ts))
 
     if do_plot:
         pathct = min(NumPath, MAX_PATH_IN_PLOT)
         for i in xrange(pathct):
             pyplot.plot(paths[i])
-        print 'Plotting %d/%d paths' % (pathct, NumPath)
+        print ('Plotting %d/%d paths' % (pathct, NumPath))
         pyplot.show()
     return elapsed
+
+numpy_time = driver(mc_numpy, do_plot=True)
