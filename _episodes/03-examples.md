@@ -89,7 +89,7 @@ on github:
 	I have tried the Mandlebrot example on Zrek, and only the first part works.
 	I have emailed Nvidia asking for help updating this code which uses Numbapro (deprecated).
 
-	- Try the other (Monte Carlo) example from https://developer.nvidia.com/how-to-cuda-python
+	- Try the other (Monte Carlo) example from [same page](https://developer.nvidia.com/how-to-cuda-python)
 - Read Numba user manual
 - Read Numba documentation
 - Find library examples using anaconda accelerate e.g. cuBLAS
@@ -97,3 +97,4 @@ on github:
 - Work through [this set](https://github.com/ContinuumIO/intel_hpc_2016_numba_tutorial) 
 of jupyter notebooks, which looks to be a sub-set of 
 [this](https://github.com/ContinuumIO/supercomputing2016-python) python resource
+	- Look out particularly for @vectorize
