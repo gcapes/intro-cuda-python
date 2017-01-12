@@ -3,13 +3,16 @@ title: "Examples"
 teaching: 0
 exercises: 0
 questions:
-- 
-- 
+- "What type of operations can be accelerated using libraries"
+- "How can libraries be used to accelerate calculations"
+- "How can CUDA python be used to write my own kernels"
+- "Worked examples moving from division between vectors to sum reduction"
 objectives:
 - "Learn to use CUDA libraries"
 - "Learn to accelerate Python code using CUDA"
 keypoints:
-- ""
+- 
+- 
 ---
 Show examples for each of the CUDA use scenarios mentioned:
 
