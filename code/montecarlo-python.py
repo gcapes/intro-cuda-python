@@ -48,18 +48,18 @@ def driver(pricer, do_plot=False):
 
     ST = paths[:, -1]
     PaidOff = np.maximum(paths[:, -1] - StrikePrice, 0)
-    print ('Result')
+    print('Result')
     fmt = '%20s: %s'
-    print ('stock price %'+ fmt, np.mean(ST))
-    print ('standard error %'+fmt, np.std(ST) / sqrt(NumPath))
-    print ('paid off %' + fmt, np.mean(PaidOff))
+    print(fmt % ('stock price', np.mean(ST)))
+    print(fmt % ('standard error' , np.std(ST) / sqrt(NumPath)))
+    print(fmt % ('paid off', np.mean(PaidOff)))
     optionprice = np.mean(PaidOff) * exp(-InterestRate * Maturity)
-    print ('option price %'+fmt, optionprice)
+    print(fmt % ('option price', optionprice))
 
-    print ('Performance')
+    print('Performance')
     NumCompute = NumPath * NumStep
-    print ('Mstep/second %'+fmt, '%.2f' % (NumCompute / elapsed / 1e6))
-    print ('time elapsed %'+fmt, '%.3fs' % (te - ts))
+    print('%20s: %.2f' % ('Mstep/second', (NumCompute / elapsed / 1e6)))
+    print('%20s: %.3fs' % ('time elapsed', (te - ts)))
 
     if do_plot:
         pathct = min(NumPath, MAX_PATH_IN_PLOT)
