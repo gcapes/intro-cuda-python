@@ -6,7 +6,7 @@ from numba import vectorize
 
 @vectorize(['f8(f8, f8, f8, f8, f8)'])
 def step_cpuvec(last, dt, c0, c1, noise):
-    return last * math.exp(c0 * dt + c1 * noise)
+    return last * exp(c0 * dt + c1 * noise)
 
 def mc_cpuvec(paths, dt, interest, volatility):
     c0 = interest - 0.5 * volatility ** 2
@@ -83,6 +83,7 @@ def driver(pricer, do_plot=False):
         pyplot.show()
     return elapsed
 
-#numpy_time = driver(mc_numpy, do_plot=True)
+print('\nUsing numpy:')
+numpy_time = driver(mc_numpy, do_plot=True)
+print('\nUsing CPU vectorization:')
 cpuvec_time = driver(mc_cpuvec, do_plot=True)
-print('cpuvec_time',cpuvec_time)
