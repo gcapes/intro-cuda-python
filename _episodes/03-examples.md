@@ -66,7 +66,7 @@ CUDA functionality can accessed directly from Python code. Information on
 [this page](https://docs.continuum.io/numbapro/CUDAJit) 
 is a bit sparse.
 
-Thankfully the Numba [documentation](http://numba.pydata.org/numba-doc/0.30.0/index.html)
+Thankfully the [Numba documentation](http://numba.pydata.org/numba-doc/0.30.0/index.html)
 looks fairly comprehensive and includes some examples.
 
 ## PyCUDA
@@ -89,7 +89,8 @@ on github:
 	I have tried the Mandlebrot example on Zrek, and only the first part works.
 	I have emailed Nvidia asking for help updating this code which uses Numbapro (deprecated).
 
-	- Try the other (Monte Carlo) example from [same page](https://developer.nvidia.com/how-to-cuda-python)
+	- ~~Try the other (Monte Carlo) example from [same page](https://developer.nvidia.com/how-to-cuda-python)~~
+	- Understand how the speed ups work in the monte-carlo example
 - Read Numba user manual
 - Read Numba documentation
 - Find library examples using anaconda accelerate e.g. cuBLAS
