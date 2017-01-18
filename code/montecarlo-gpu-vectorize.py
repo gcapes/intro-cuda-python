@@ -4,7 +4,7 @@ from matplotlib import pyplot              # for plotting
 from math import sqrt, exp
 from numba import vectorize
 
-@vectorize(['f8(f8, f8, f8, f8, f8)'],target='gpu')
+@vectorize(['f8(f8, f8, f8, f8, f8)'],target='cuda')
 def step_gpuvec(last, dt, c0, c1, noise):
     return last * exp(c0 * dt + c1 * noise)
 
@@ -110,10 +110,10 @@ def driver(pricer, do_plot=False):
     return elapsed
 
 print('\nUsing numpy:')
-numpy_time = driver(mc_numpy, do_plot=True)
+numpy_time = driver(mc_numpy, do_plot=False)
 print('\nUsing CPU vectorization:')
-cpuvec_time = driver(mc_cpuvec, do_plot=True)
+cpuvec_time = driver(mc_cpuvec, do_plot=False)
 print('\nUsing using parallel CPU threads')
-parallel_time = driver(mc_parallel, do_plot=True)
+parallel_time = driver(mc_parallel, do_plot=False)
 print('\nUsing GPU vectorization')
-gpu_time = drive(mc_gpu, do_plot=True)
+gpu_time = driver(mc_gpuvec, do_plot=True)

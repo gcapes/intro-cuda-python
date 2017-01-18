@@ -50,7 +50,7 @@ def mc_cuda(paths, dt, interest, volatility):
     # wait for all GPU work to complete
     stream.synchronize()
 
-@vectorize(['f8(f8, f8, f8, f8, f8)'],target='gpu')
+@vectorize(['f8(f8, f8, f8, f8, f8)'],target='cuda')
 def step_gpuvec(last, dt, c0, c1, noise):
     return last * math.exp(c0 * dt + c1 * noise)
 
