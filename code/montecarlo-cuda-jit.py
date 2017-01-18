@@ -3,7 +3,7 @@ from timeit import default_timer as timer  # for timing
 from matplotlib import pyplot              # for plotting
 import math
 from numba import vectorize, cuda, jit
-import accelerate
+import accelerate.cuda
 
 @jit('void(double[:], double[:], double, double, double, double[:])',target='gpu')
 def step_cuda(last, paths, dt, c0, c1, normdist):
@@ -22,7 +22,7 @@ def mc_cuda(paths, dt, interest, volatility):
     # instantiate a CUDA stream for queueing async CUDA cmds
     stream = cuda.stream()
     # instantiate a cuRAND PRNG
-    prng = cuda.rand.PRNG(cuda.rand.PRNG.MRG32K3A, stream=stream)
+    prng = accelerate.cuda.rand.PRNG(accelerate.cuda.rand.PRNG.MRG32K3A, stream=stream)
 
     # Allocate device side array
     d_normdist = cuda.device_array(n, dtype=np.double, stream=stream)
@@ -156,10 +156,12 @@ def driver(pricer, do_plot=False):
     return elapsed
 
 print('\nUsing numpy:')
-numpy_time = driver(mc_numpy, do_plot=True)
+numpy_time = driver(mc_numpy, do_plot=False)
 print('\nUsing CPU vectorization:')
-cpuvec_time = driver(mc_cpuvec, do_plot=True)
+cpuvec_time = driver(mc_cpuvec, do_plot=False)
 print('\nUsing using parallel CPU threads')
-parallel_time = driver(mc_parallel, do_plot=True)
+parallel_time = driver(mc_parallel, do_plot=False)
 print('\nUsing GPU vectorization')
-gpu_time = drive(mc_gpu, do_plot=True)
+gpu_time = driver(mc_gpuvec, do_plot=False)
+print('\nUsing CUDA')
+cuda_time = driver(mc_cuda, do_plot=True)
