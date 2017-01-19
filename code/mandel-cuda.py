@@ -1,12 +1,11 @@
 import numpy as np
 from pylab import imshow, show
 from timeit import default_timer as timer
-from numbapro import cuda
-from numba import *
+from numba import cuda, uint32, f8, uint8
 
 mandel_gpu = cuda.jit(restype=uint32, argtypes=[f8,f8,uint32],device=True)(mandel)
 
-@cuda.jit(argtypes=[f8,f8,f8,f8,unit8[:,:],uint32])
+@cuda.jit(argtypes=[f8,f8,f8,f8,uint8[:,:],uint32])
 def mandel_kernel(min_x,max_x,min_y,max_y,image,iters):
 # Given the real and imaginary parts of a complex number,
 # determine if it is a candidate for membership in the Mandelbrot
@@ -19,7 +18,7 @@ def mandel_kernel(min_x,max_x,min_y,max_y,image,iters):
 
     startX,startY=cuda.grid(2)
     gridX = cuda.gridDim.x * cuda.blockDim.x;
-    gridY - cuda.gridDim.y * cuda.blockDim.y;
+    gridY = cuda.gridDim.y * cuda.blockDim.y;
 
     for x in range(startX, width, gridX):
         real = min_x + x * pixel_size_x
@@ -40,6 +39,7 @@ def mandel(x, y, max_iters):
             return i
 
     return max_iters
+
 def create_fractal(min_x, max_x, min_y, max_y, image, iters):
     height = image.shape[0]
     width = image.shape[1]
