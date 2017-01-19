@@ -162,6 +162,22 @@ cpuvec_time = driver(mc_cpuvec, do_plot=False)
 print('\nUsing using parallel CPU threads')
 parallel_time = driver(mc_parallel, do_plot=False)
 print('\nUsing GPU vectorization')
-gpu_time = driver(mc_gpuvec, do_plot=False)
+gpuvec_time = driver(mc_gpuvec, do_plot=False)
 print('\nUsing CUDA')
-cuda_time = driver(mc_cuda, do_plot=True)
+cuda_time = driver(mc_cuda, do_plot=False)
+
+def perf_plot(rawdata, xlabels):
+    data = [numpy_time / x for x in rawdata]
+    idx = np.arange(len(data))
+    fig = pyplot.figure()
+    width = 0.5
+    ax = fig.add_subplot(111)
+    ax.bar(idx, data, width)
+    ax.set_ylabel('normalized speedup')
+    ax.set_xticks(idx + width / 2)
+    ax.set_xticklabels(xlabels)
+    ax.set_ylim(0.9)
+    pyplot.show()
+
+perf_plot([numpy_time, cpuvec_time, parallel_time, gpuvec_time,cuda_time],
+          ['numpy', 'cpu-vect', 'parallel-vect', 'gpu-vect','cuda'])
