@@ -83,15 +83,17 @@ on github:
 [NVIDIA NumbaPro repo](https://github.com/harrism/numbapro_examples)
 
 ## To do list:
-- [NVidia page](https://developer.nvidia.com/how-to-cuda-python) 
+- [NVidia page examples](https://developer.nvidia.com/how-to-cuda-python)
+	(See [code]({{ page.root }}/code) folder)
 	- Update Mandlebrot example "Even Bigger Speedups with CUDA Python" section. 
 
 	I have tried the Mandlebrot example on Zrek, and only the first part works.
-	I have emailed Nvidia asking for help updating this code which uses Numbapro (deprecated).
+	I have emailed Nvidia and the GitHub repo owner asking for help updating this code which uses Numbapro (deprecated).
+	No reponse received. **Help required!**
 
 	- ~~Try the other (Monte Carlo) example from [same page](https://developer.nvidia.com/how-to-cuda-python)~~
 	- Understand how the speed ups work in the monte-carlo example
-- Read Numba user manual
+- ~~Read Numba user manual~~
 - Read Numba documentation
 - Find library examples using anaconda accelerate e.g. cuBLAS
 - Find MKL examples using anaconda accelerate
@@ -99,3 +101,10 @@ on github:
 of jupyter notebooks, which looks to be a sub-set of 
 [this](https://github.com/ContinuumIO/supercomputing2016-python) python resource
 	- Look out particularly for @vectorize
+- Explain what different Numba options are used for:
+	- numba.jit: CPU compilation of python code. 'cache' option for quicker subsequent calls
+	- numba.vectorize: ufunc with scalar input. Target options: cpu, parallel, cuda
+	- numba.guvectorize: as above but with input is an arbitrary number of array elements
+	- For all three above, 'nopython' option is quicker
+- What to compile: identify critical paths in code (ok, but which profiler?)
+- Link to [Numba troubleshooting page](http://numba.pydata.org/numba-doc/latest/user/troubleshoot.html)
