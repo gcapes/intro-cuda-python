@@ -109,6 +109,8 @@ on github:
 of jupyter notebooks, which looks to be a sub-set of 
 [this](https://github.com/ContinuumIO/supercomputing2016-python) python resource
 	- Look out particularly for @vectorize
+- Read [CUDA C programming guide](http://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#axzz4WJRtDMGF)
+for the detail of how CUDA works
 
 ## To do list for lesson structure:
 - Explain what different Numba options are used for:
