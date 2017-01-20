@@ -1,5 +1,17 @@
+---
+title: "Anja's stuff"
+teaching: 0
+exercises: 0
+questions:
+-
+objectives:
+-
+keypoints:
+- 
+- 
+---
 First resource
-http://on-demand.gputechconf.com/gtc-express/2011/presentations/cuda_webinars_WarpsAndOccupancy.pdf
+[Warps and occupancy](http://on-demand.gputechconf.com/gtc-express/2011/presentations/cuda_webinars_WarpsAndOccupancy.pdf)
 
 * A grid is composed of blocks which are completely independent
 * A block is composed of threads which can communicate within their own block
