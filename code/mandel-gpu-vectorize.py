@@ -1,10 +1,6 @@
-from __future__ import print_function, division, absolute_import
-
 from timeit import default_timer as timer
-
 import numpy as np
 from pylab import imshow, jet, show, ion
-
 from numba import vectorize
 
 
@@ -44,10 +40,7 @@ def main():
     te = timer()
     print('time: %f' % (te - ts))
     image = pixels.reshape(width, height)
-    #print(image)
     imshow(image)
     show()
 
-
-if __name__ == '__main__':
-    main()
+main()
