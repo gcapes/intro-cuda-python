@@ -92,7 +92,8 @@ on github:
 		I have tried the Mandlebrot example on Zrek, and only the first part works.
 		I have emailed Nvidia and the GitHub repo owner asking for help updating
 		this code which uses Numbapro (deprecated).
-		No reponse received. **Help required!**
+		~~No reponse received. **Help required!**~~
+		I just got a [response](https://github.com/harrism/numba_examples/issues/2#issuecomment-330739425), suggesting this has now been fixed.
 
 		- The [github](https://github.com/ContinuumIO/numbapro-examples/tree/master/mandel)
 		repo has a different sequence of steps, so look at what has been
